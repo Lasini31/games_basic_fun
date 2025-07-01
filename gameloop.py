@@ -1,4 +1,6 @@
+from turtle import update
 import pygame
+from pygame.color import Color
 
 pygame.init()
 
@@ -8,18 +10,21 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-player_pos_2 = pygame.Vector2(screen.get_width() / 3, screen.get_height() / 3)
+green = Color(0, 255, 0)
+red = Color(200, 20, 20)
+
+player_pos = pygame.Vector2(30, 30)
+player_pos_2 = pygame.Vector2(470, 470)
 
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
+ 
     screen.fill("white") 
     
-    pygame.draw.circle(screen, "green", player_pos, 20)
-    pygame.draw.circle(screen, "red", player_pos_2, 20)
+    pygame.draw.circle(screen, green, player_pos, 20)
+    pygame.draw.circle(screen, red , player_pos_2, 20)
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
